@@ -154,7 +154,7 @@ header {
 }
 
 .card {
-  background: #111;
+  background: #4191c0;
   padding: 30px;
   border-radius: 10px;
 }
@@ -171,7 +171,14 @@ header {
 /* CONTACT */
 .contact-form {
   max-width: 400px;
-  margin: auto;
+  /* margin: auto; */
+}
+.btn{
+    border: none;
+}
+.btn:hover{
+    color: white;
+    background: #2fb7cf;
 }
 
 .contact-form input,
