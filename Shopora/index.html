@@ -1,0 +1,155 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopora</title>
+    <!-- Fevicon -->
+    <link rel="shortcut icon" href="images/Logo (4).png" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="main-header">
+      <nav class="navbar">
+        <a href="index.html" class="nav-logo"
+          ><img src="images/logo (4).png" alt=""
+        /></a>
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="shop.html" class="nav-link">
+              Shop
+              <i class="fa-solid fa-chevron-down fa-xs"></i>
+            </a>
+            <div class="mega-menu">
+                <div class="mega-menu-grid" id="megaMenu">
+                    <div class="mega-menu-column">
+                        <h3>Men</h3>
+                        <ul>
+                            <li>
+                                <a href="shop.html?gender=Men&category=T-Shirts">
+                                    T-Shirts & Polos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop.html?gender=Men&category=Shirts">Shirts</a>
+                            </li>
+                            <li>
+                                <a href="shop.html?gender=Men&category=Jeans">Jeans & Trousers</a>
+                            </li>
+                            <li>
+                                <a href="shop.html?gender=Men&category=Footware">
+                                    footware
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-column">
+                        <h3>Women</h3>
+                        <ul>
+                            <li>
+                                <a href="shop.html?gender=Women&category=T-Shirts">
+                                    T-Shirts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop.html?gender=Women&category=Shirts">Shirts</a>
+                            </li>
+                            <li>
+                                <a href="shop.html?gender=Women&category=Jeans">Jeans</a>
+                            </li>
+                            <li>
+                                <a href="shop.html?gender=Women&category=Footware">
+                                    footware
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop.html?gender=Women&category=Boots">
+                                    Boots
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-column">
+                        <h3>Accessories</h3>
+                        <ul>
+                            <li>
+                                <a href="shop.html?gender=Men&category=Accessories">
+                                    Men's Accessories
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop.html?gender=Women&category=Accessories">
+                                    Women's Accessories
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-promo">
+                        <img src="https://images.pexels.com/photos//1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Seasonal Sale"/>
+                        <div class="mega-menu-promo-comtent">
+                            <h4>End of Season Sale</h4>
+                            <p>Up to 50% off on selected items.</p>
+                            <a href="shop.html" class="promo-btn">
+                                Shop Now <i class="fa-solid fa-arrow-right fa-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- mobile menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="nav-logo">Shopo <span>Ra</span></a>
+            <button class="close-btn" id="close-btn">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+        <input type="text" class="mobile-search" placeholder="Search..."/>
+        <ul class="mobile-nav-links">
+            <li class="mobile-nav-item">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+            </li>
+            <li class="mobile-nav-item">
+                <a href="shop.html" class="mobile-nav-link" id="mobile-shop-link">
+                    Shop 
+                    <i class="fa-solid fa-chevro-down fa-xs" id="shop-chevron"></i>
+                </a>
+               <div class="mobile-mega-menu" id="mobile-mega-menu">
+                <div class="mobile-mega-menu-column">
+                    <h4>Men</h4>
+                    <ul>
+                        <li class="mobile-nav-item">
+                             <a href="shop.html?gender=Men&category=T-Shirts">
+                                    T-Shirts & Polos
+                                </a>
+                        </li>
+                    </ul>
+                </div>
+               </div>
+            </li>
+        </ul>
+    </div>
+    <!-- menu-overylay -->
+    <div class="menu-overlay"></div>
+  </body>
+</html>
