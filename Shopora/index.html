@@ -13,6 +13,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Style -->
+     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <!-- Header -->
@@ -113,13 +115,31 @@
           <li class="nav-item">
             <a href="contact.html" class="nav-link">Contact</a>
           </li>
+          <li class="nav-item">
+            <form action="shop.html" method="get">
+                <input type="text" 
+                id="searchInput"
+                name="search"
+                placeholder="Search...">
+                <button class="btn" type="submit">Search</button>
+            </form>
+          </li>
+          <li class="nav-item">
+           <button class="btn">Login</button>
+          </li>
+          <li class="dark-toggle" id="dark-toggle">🌙</li>
         </ul>
+        <button class="menu-btn" id="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
       </nav>
     </header>
     <!-- mobile menu -->
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-header">
-            <a href="index.html" class="nav-logo">Shopo <span>Ra</span></a>
+            <a href="index.html" class="nav-logo"
+          ><img src="images/logo (4).png" alt=""
+        /></a>
             <button class="close-btn" id="close-btn">
                 <i class="fa-solid fa-times"></i>
             </button>
@@ -197,11 +217,30 @@
                             </li>
                         </ul>
                     </div>
+                      <div class="mobile-mega-menu-promo">
+                        <img src="https://images.pexels.com/photos//1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Seasonal Sale"/>
+                        <div class="mega-menu-promo-comtent">
+                            <h4>End of Season Sale</h4>
+                            <p>Up to 50% off on selected items.</p>
+                            <a href="shop.html" class="promo-btn">
+                                Shop Now <i class="fa-solid fa-arrow-right fa-xs"></i>
+                            </a>
+                        </div>
+                    </div>
                </div>
             </li>
+             <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <div class="dark-toggle" id="mobile-dark-toggle">🌙</div>
+          </li>
         </ul>
     </div>
     <!-- menu-overylay -->
-    <div class="menu-overlay"></div>
+    <div class="menu-overlay" id="mobile-overlay"></div>
   </body>
 </html>
