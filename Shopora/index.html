@@ -22,7 +22,7 @@
       <nav class="navbar">
         <a href="index.html" class="nav-logo"
           ><img src="images/logo (4).png" alt=""
-        /></a>
+        id="nav-logo"/></a>
         <ul class="nav-links">
           <li class="nav-item">
             <a href="index.html" class="nav-link">Home</a>
@@ -127,7 +127,7 @@
           <li class="nav-item">
            <button class="btn">Login</button>
           </li>
-          <li class="dark-toggle" id="dark-toggle">🌙</li>
+          <li  onclick="toggleDarkMode()" class="dark-toggle" id="dark-toggle"></li>
         </ul>
         <button class="menu-btn" id="menu-btn">
             <i class="fa-solid fa-bars"></i>
@@ -139,7 +139,7 @@
         <div class="mobile-menu-header">
             <a href="index.html" class="nav-logo"
           ><img src="images/logo (4).png" alt=""
-        /></a>
+        id="nav-logo"/></a>
             <button class="close-btn" id="close-btn">
                 <i class="fa-solid fa-times"></i>
             </button>
@@ -152,7 +152,7 @@
             <li class="mobile-nav-item">
                 <a href="shop.html" class="mobile-nav-link" id="mobile-shop-link">
                     Shop 
-                    <i class="fa-solid fa-chevro-down fa-xs" id="shop-chevron"></i>
+                    <i class="fa-solid fa-chevron-down fa-xs" id="shop-chevron"></i>
                 </a>
                <div class="mobile-mega-menu" id="mobile-mega-menu">
                 <div class="mobile-mega-menu-column">
@@ -236,11 +236,12 @@
             <a href="contact.html" class="nav-link">Contact</a>
           </li>
           <li class="nav-item">
-            <div class="dark-toggle" id="mobile-dark-toggle">🌙</div>
+            <div  onclick="toggleDarkMode()" class="dark-toggle" id="mobile-dark-toggle"></div>
           </li>
         </ul>
     </div>
     <!-- menu-overylay -->
     <div class="menu-overlay" id="mobile-overlay"></div>
   </body>
+  <script src="navbar.js"></script>
 </html>
