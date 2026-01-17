@@ -132,6 +132,7 @@
         <button class="menu-btn" id="menu-btn">
             <i class="fa-solid fa-bars"></i>
         </button>
+
       </nav>
     </header>
     <!-- mobile menu -->
@@ -152,8 +153,9 @@
             <li class="mobile-nav-item">
                 <a href="shop.html" class="mobile-nav-link" id="mobile-shop-link">
                     Shop 
-                    <i class="fa-solid fa-chevron-down fa-xs" id="shop-chevron"></i>
+                   <i  onclick="toggleDropdown(event)" class="fa-solid fa-chevron-down fa-xs" id="shop-chevron" ></i>
                 </a>
+                 
                <div class="mobile-mega-menu" id="mobile-mega-menu">
                 <div class="mobile-mega-menu-column">
                     <h4>Men</h4>
@@ -241,7 +243,45 @@
         </ul>
     </div>
     <!-- menu-overylay -->
-    <div class="menu-overlay" id="mobile-overlay"></div>
+    <div class="menu-overlay" id="mobile_overlay"></div>
+
+    <!-- hero -->
+     <!-- zigzag images hero section -->
+     <div class="hero-container">
+  <div class="category-image">
+    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=500&auto=format&fit=crop" alt="Shoes">
+    <div class="zigzag-overlay"><a href="shop.html?category=Footwear">Footwear</a></div>
+  </div>
+  <div class="category-image">
+    <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800&auto=format&fit=crop" alt="Watch">
+    <div class="zigzag-overlay"><a href="shop.html?category=Accessories">Accessories</a></div>
+  </div>
+  <div class="category-image">
+    <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?w=800&auto=format&fit=crop" alt="Backpack">
+    <div class="zigzag-overlay"><a href="shop.html?category=Bags">Bags</a></div>
+  </div>
+  <div class="category-image">
+    <img src="https://images.unsplash.com/photo-1475178626620-a4d074967452?w=500&auto=format&fit=crop" alt="Jeans">
+    <div class="zigzag-overlay"><a href="shop.html?category=Jeans">Jeans</a></div>
+  </div>
+  <div class="category-image">
+    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=500&auto=format&fit=crop" alt="T-Shirts">
+    <div class="zigzag-overlay"><a href="shop.html?category=T-Shirts">T-Shirts</a></div>
+  </div>
+  <div class="category-image">
+    <img src="https://images.unsplash.com/photo-1607345366928-199ea26cfe3e?w=500&auto=format&fit=crop" alt="Shirts">
+    <div class="zigzag-overlay"><a href="shop.html?category=Shirts">Shirts</a></div>
+  </div>
+  <div class="category-image">
+    <img src="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?w=500&auto=format&fit=crop" alt="Women">
+    <div class="zigzag-overlay"><a href="shop.html?gender=Women">Women</a></div>
+  </div>
+  <div class="category-image">
+    <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=500&auto=format&fit=crop" alt="Men">
+    <div class="zigzag-overlay"><a href="shop.html?gender=Men">Men</a></div>
+  </div>
+</div>
+
   </body>
   <script src="navbar.js"></script>
 </html>
