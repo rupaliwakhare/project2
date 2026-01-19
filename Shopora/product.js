@@ -131,7 +131,7 @@ const products = [
     name: "Orange Summer Top",
     slug: "orange-summer-top",
     description: "Lightweight cotton top for summer.",
-    discount: 0,
+    discount: 6,
     price: 799.0,
     listPrice: 799.0,
     images: [

@@ -100,7 +100,7 @@ function renderProducts(filterTag) {
   <div class="product-image-container">
     <img src="${product.images[0]}" alt="${product.name}" class="product-image">
   </div>
-  <h3 class="product-title" style="color:${titleColor};">
+  <h3 class="product-title">
     ${product.name.slice(0, 30)}...
   </h3>
   <div class="product-rating">${stars}</div>
@@ -132,3 +132,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderProducts("");
 });
 
+
+// Men & 
