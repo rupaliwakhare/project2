@@ -140,6 +140,18 @@ img { max-width: 100%; display: block; }
 .theme-toggle:hover { transform: translateY(-1px); }
 .theme-icon { display: inline-block; }
 
+/* curser-dot */
+.cursor-dot,
+.cursor-bubble {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+
 /* Hero */
 .hero { padding: 3.5rem 0 2rem; }
 
@@ -347,33 +359,6 @@ img { max-width: 100%; display: block; }
 
 
 
-/* Sections */
-/* .section { padding: 2.5rem 0; }
-.section-title {
-  font-family: var(--font-head);
-  font-weight: 700;
-  margin: 0 0 1rem;
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
-}
-
-.cards {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-.card {
-  background: color-mix(in oklab, var(--surface) 70%, transparent);
-  border-radius: var(--radius);
-  padding: 1rem;
-  box-shadow: 0 10px 24px var(--shadow);
-} */
-
-
-/* Service  */
-
 /* Services Section */
 #services {
   padding: 80px 0;
@@ -458,70 +443,96 @@ img { max-width: 100%; display: block; }
   background: color-mix(in oklab, var(--surface) 70%, transparent);
   box-shadow: 0 10px 24px var(--shadow);
 }
+.grid-item img{
+  width: 80%;
+  height: 140px;
+  border-radius: 8px;
+  margin: auto;
+  margin-top: 10px;
+}
+.grid-item h2{
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+}
+.grid-item p{
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 14px;
+  color: rgba(243, 240, 240, 0.726);
+  text-align: justify;
+}
+.grid-item #btn{
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(10, 15, 20, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 220, 0.35);
+  box-shadow: 0 0 20px rgba(0, 255, 220, 0.25);
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 140px;
+  cursor: pointer;
+}
+
+#btn a {
+  color: #00ffe0;
+  text-decoration: none;
+  font-weight: 200;
+}
+
+#btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 255, 220, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+/* Small white dot (snaps to cursor) */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;   /* solid white dot */
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+}
+
+/* Solid bubble (trails cursor slightly below) */
+.cursor-bubble {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;         /* bigger than dot */
+  height: 20px;
+  border-radius: 50%;
+  background: #00ffc8; /* solid teal bubble */
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+a, button { cursor: none; /* disable default pointer */ }
+
+
+
 
 /* Footer */
 .site-footer { padding: 2rem 0 3rem; }
 .footer-inner { display: flex; justify-content: center; color: var(--muted); }
 
-/* Responsive */
-@media (max-width: 980px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .hero-visual { order: -1; }
-}
-@media (max-width: 760px) {
-  .nav-toggle { display: inline-block; }
-  .nav-list {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    flex-direction: column;
-    background: color-mix(in oklab, var(--surface) 70%, transparent);
-    border-radius: var(--radius);
-    padding: 0.5rem;
-    box-shadow: 0 12px 28px var(--shadow);
-    transform-origin: top right;
-    transform: scale(0.98);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity var(--transition), transform var(--transition);
-  }
-  .nav-list.open {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
-  }
-}
 
-/* Custom cursor */
-.cursor-dot,
-.cursor-bubble {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 1000;
-  will-change: transform;
-}
-
-.cursor-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: color-mix(in oklab, var(--text) 92%, var(--bg));
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* very light shadow */
-  transform: translate(-50%, -50%);
-}
-
-.cursor-bubble {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: color-mix(in oklab, var(--primary) 65%, transparent);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.14);
-  opacity: 0.9;
-  transform: translate(-50%, -50%);
-  transition: background var(--transition), opacity var(--transition);
-}
-
-/* Hide native cursor for design feel */
-a, button { cursor: none; }
