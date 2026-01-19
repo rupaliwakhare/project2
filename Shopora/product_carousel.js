@@ -101,7 +101,7 @@ function renderProducts(filterTag) {
     <img src="${product.images[0]}" alt="${product.name}" class="product-image">
   </div>
   <h3 class="product-title">
-    ${product.name.slice(0, 30)}...
+    ${product.name.slice(0, 20)}...
   </h3>
   <div class="product-rating">${stars}</div>
   <div class="product-price">₹${product.price.toFixed(2)}</div>
@@ -133,4 +133,16 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Men & 
+// Men & Women products
+
+function renderCarouselProducts(containerId,gender){
+  const container =  document.getElementById(containerId);
+  container.innerHTML = "";
+  const filtered = document.filter((p)=>p.gender === gender);
+  filtered.forEach((product)=>{
+    const card = document.createElement("div");
+    card.className = "product-card";
+    let stars = "";
+    for
+  })
+}
