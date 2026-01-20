@@ -135,14 +135,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Men & Women products
 
-function renderCarouselProducts(containerId,gender){
-  const container =  document.getElementById(containerId);
+function renderCarouselProducts(containerId, gender, products) {
+  const container = document.getElementById(containerId);
   container.innerHTML = "";
-  const filtered = document.filter((p)=>p.gender === gender);
-  filtered.forEach((product)=>{
+
+  const filtered = products.filter((p) => p.gender === gender);
+
+  filtered.forEach((product) => {
     const card = document.createElement("div");
     card.className = "product-card";
+
     let stars = "";
-    for
-  })
+    for (let i = 0; i < 5; i++) {
+      stars +=
+        i < product.avgRating
+          ? `<i class="fas fa-star"></i>`
+          : `<i class="far fa-star"></i>`;
+    }
+
+    card.innerHTML = `
+      ${product.discount ? `<div class="discount-badge">${product.discount}%</div>` : ""}
+      <div class="product-image-container">
+        <img src="${product.images[0]}" alt="${product.name}" class="product-image">
+      </div>
+      <h3 class="product-title">${product.name.slice(0, 20)}...</h3>
+      <div class="product-rating">${stars}</div>
+      <div class="product-price">₹${product.price.toFixed(2)}</div>
+    `;
+
+    container.appendChild(card);
+  });
 }
+
+function menWomenScrollCarousel(id, offset) {
+  const carousel = document.getElementById(id);
+  carousel.scrollBy({ left: offset, behavior: "smooth" });
+}
+
+renderCarouselProducts("womenCarousel", "Women", products);
+renderCarouselProducts("menCarousel","Men",products);
