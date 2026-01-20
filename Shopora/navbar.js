@@ -4,6 +4,7 @@ const darktoggle = document.getElementById("dark-toggle");
 const mobileDarkToggle = document.getElementById("mobile-dark-toggle");
 const body = document.body;
 const navLogo = document.getElementById("nav-logo");
+const footerLogo = document.getElementById("footer-logo");
 
 // Page load par check karo
 if (localStorage.getItem("darkMode") === "enabled") {
@@ -11,11 +12,13 @@ if (localStorage.getItem("darkMode") === "enabled") {
   darktoggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
   mobileDarkToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
   navLogo.src = "images/dark_logo1.png";
+  footerLogo.src = "images/dark_logo1.png";
 } else {
   body.classList.remove("dark-mode");
   darktoggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
   mobileDarkToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
   navLogo.src = "images/logo (4).png";
+  footerLogo.src = "images/logo (4).png";
 }
 
 function toggleDarkMode() {
@@ -25,12 +28,14 @@ function toggleDarkMode() {
     darktoggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
     mobileDarkToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
     navLogo.src = "images/logo (4).png";
+    footerLogo.src = "images/logo (4).png";
   } else {
     body.classList.add("dark-mode");
     localStorage.setItem("darkMode", "enabled");
     darktoggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
     mobileDarkToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
     navLogo.src = "images/dark_logo1.png";
+    footerLogo.src = "images/dark_logo1.png";
   }
 }
 
@@ -85,3 +90,5 @@ function toggleDropdown(e) {
   shopChevron.classList.toggle("fa-chevron-down");
   shopChevron.classList.toggle("fa-chevron-up");
 }
+
+// footer
