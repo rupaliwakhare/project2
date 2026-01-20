@@ -572,6 +572,161 @@ li {
   font-weight: 600;
 }
 
+/* men women collection */
+.collection {
+  padding: 60px 20px;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.collection-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.collection-text {
+  flex: 1 1 50%;
+}
+
+.collection-text h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: var(--heading);
+}
+
+.collection-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.collection-image {
+  flex: 1 1 50%;
+}
+
+.collection-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #4f46e5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #6366f1;
+}
+
+.collection {
+  padding: 60px 20px;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.collection-content {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.collection-text {
+  flex: 1 1 50%;
+}
+
+.collection-text h2 {
+  font-size: 38px;
+  margin-bottom: 15px;
+  color: var(--heading);
+}
+
+.collection-text p {
+  font-size: 25px;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
+.collection-image {
+  flex: 1 1 50%;
+  text-align: right;
+}
+
+.collection-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.btn {
+  font-size: 16px;
+  display: inline-block;
+  padding: 12px 24px;
+  background-color:rgb(230, 110, 166);
+  border: none;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+.btn:hover{
+  background-color:rgb(209, 33, 92);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .collection-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .collection-image {
+    text-align: center;
+  }
+
+  .collection-image img {
+    max-width: 100%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .collection-content {
+    flex-direction: column;
+  }
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .collections-row {
+    flex-direction: column;
+  }
+
+  .collection-card {
+    flex: 1 1 100%;
+  }
+}
+
+
 /* footer */
 /* .main-footer{
   background-color: #111827;
