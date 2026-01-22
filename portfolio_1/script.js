@@ -3,11 +3,19 @@ const html = document.documentElement;
 const themeToggle = document.querySelector(".theme-toggle");
 const themeIcon = document.querySelector(".theme-icon");
 
+function changeGridPColor(theme) {
+  document.querySelectorAll(".grid-item p").forEach((p) => {
+    p.style.color = theme === "dark" ? "white" : "black";
+  });
+}
+
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme) {
   html.setAttribute("data-theme", savedTheme);
   themeIcon.textContent = savedTheme === "dark" ? "🌙" : "☀️";
 }
+
+changeGridPColor(savedTheme || "dark");
 
 themeToggle.addEventListener("click", () => {
   const current = html.getAttribute("data-theme") || "dark";
@@ -15,7 +23,11 @@ themeToggle.addEventListener("click", () => {
   html.setAttribute("data-theme", next);
   localStorage.setItem("theme", next);
   themeIcon.textContent = next === "dark" ? "🌙" : "☀️";
+
+changeGridPColor(next);
 });
+
+
 
 // Mobile nav toggle
 const navToggle = document.querySelector(".nav-toggle");

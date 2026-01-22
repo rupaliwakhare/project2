@@ -142,6 +142,12 @@
 
 /* Tablet (up to 991px) */
 @media (max-width: 991px) {
+   .cursor-dot {
+    display: none;
+  }
+  body {
+    cursor: default;
+  }
   #about {
     width: 95%;
     margin-bottom: 0;

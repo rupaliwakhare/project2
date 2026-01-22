@@ -47,7 +47,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   cursor: none; /* design cursor */
   background-image: radial-gradient(
-    rgba(255, 255, 255, 0.2) 2px,
+    rgba(11, 225, 233, 0.986) 2px,
     /* dot size bigger */ transparent 2px
   );
   background-size: 30px 30px; /* spacing between dots */
@@ -118,10 +118,15 @@ img {
     background var(--transition);
 }
 
-.nav-link:hover,
+.nav-link:hover{
+  background-color: var(--accent-color);
+  color: black;
+  margin-top: 20px;
+}
+
 .nav-link.active {
-  color: var(--text);
-  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  color: black;
+  background: color-mix(in oklab, var(--accent-color) 70%, transparent);
 }
 
 .nav-toggle {
@@ -279,14 +284,14 @@ img {
   background:
     radial-gradient(
       140px 140px at 50% 40%,
-      rgba(0, 229, 255, 0.18),
+      rgba(86, 224, 240, 0.555),
       transparent 70%
     ),
-    linear-gradient(180deg, rgba(0, 229, 255, 0.08), transparent 60%);
+    linear-gradient(180deg, rgba(35, 186, 202, 0.562), transparent 60%);
   box-shadow:
     0 0 20px rgba(153, 226, 245, 0.897),
-    0 0 40px rgba(0, 229, 255, 0.35),
-    0 30px 60px rgba(0, 229, 255, 0.22);
+    0 0 40px rgba(38, 114, 122, 0.664),
+    0 30px 60px rgba(25, 169, 185, 0.678);
   overflow: hidden;
   /* padding-top: 20px; */
 }
