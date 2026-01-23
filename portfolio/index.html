@@ -2,139 +2,494 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rupali • Fullstack Developer</title>
+  <style>
+   
+    :root {
+      --bg: #0e1020;
+      --surface: #171a2b;
+      --text: #e8ecf8;
+      --muted: #a9b1d6;
+      --accent: #7c5cff;
+      --accent-2: #00d4ff;
+      --card: #1e2238;
+      --shadow: rgba(0,0,0,0.35);
+      --ring: rgba(124,92,255,0.35);
+      --grid: rgba(255,255,255,0.06);
+    }
+    .theme-light {
+      --bg: #f7f8fc;
+      --surface: #ffffff;
+      --text: #1b1e2b;
+      --muted: #4b5168;
+      --accent: #5a3df0;
+      --accent-2: #0bb8e8;
+      --card: #ffffff;
+      --shadow: rgba(0,0,0,0.12);
+      --ring: rgba(90,61,240,0.25);
+      --grid: rgba(0,0,0,0.06);
+    }
 
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <link rel="stylesheet" href="style.css" />
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none; 
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: saturate(1.2) blur(8px);
+      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--surface) 70%, transparent);
+      z-index: 20;
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .brand .logo {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 8px 24px var(--ring);
+    }
+    .nav-links {
+      display: none;
+      gap: 18px;
+      justify-self: center;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid color-mix(in oklab, var(--surface) 70%, transparent);
+      cursor: pointer;
+      box-shadow: 0 6px 16px var(--shadow);
+      user-select: none;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* Code grid */
+    .code-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(0deg, var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 24px 24px;
+      mask-image: radial-gradient(60% 60% at 50% 50%, rgb(2, 1, 1) 60%, transparent 100%);
+    }
+    /* Floating bubbles */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), rgba(255,255,255,0.15) 60%, transparent 70%);
+      box-shadow: 0 8px 24px var(--shadow);
+      animation: floatUp var(--dur) linear infinite;
+      opacity: 0.6;
+      mix-blend-mode: screen;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(100vh) translateX(var(--x)) scale(var(--s)); opacity: 0; }
+      10%  { opacity: 0.6; }
+      100% { transform: translateY(-20vh) translateX(calc(var(--x) + 20px)) scale(var(--s)); opacity: 0; }
+    }
+
+    
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 24px;
+    }
+    .hero-text h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.15;
+      margin: 0 0 10px;
+    }
+    .hero-text p {
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    .cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid color-mix(in oklab, var(--surface) 70%, transparent);
+      background: var(--surface);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 6px 16px var(--shadow);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border: none;
+      color: #0b0f1a;
+    }
+    .profile-3d {
+      perspective: 900px;
+      display: grid;
+      place-items: center;
+    }
+    *
+    .profile-card {
+      width: min(360px, 85vw);
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      background: linear-gradient(180deg, var(--card), color-mix(in oklab, var(--card) 70%, transparent));
+      box-shadow: 0 20px 40px var(--shadow);
+      transform-style: preserve-3d;
+      transition: transform 300ms ease, box-shadow 300ms ease;
+      position: relative;
+      overflow: hidden;
+    }rofile-card:hover { box-shadow: 0 30px 60px var(--ring); }
+    .profile-img {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      transform: translateZ(40px);
+      z-index: 2;
+    }
+    .profile-img img {
+      width: 60%;
+      border-radius: 50%;
+      box-shadow: 0 12px 28px var(--shadow);
+      position: relative;
+    }
+    /* Colorful glow ring */
+    .profile-glow {
+      position: absolute;
+      inset: -30%;
+      background: conic-gradient(
+        from 180deg,
+        #ff00ff,
+        #00ffff,
+        /* #ff9900,
+        #00ff00, */
+        #ff00ff
+      );
+      transform: translateZ(10px);
+      opacity: 0.45;
+      filter: blur(60px);
+      animation: spin 6s linear infinite;
+      z-index: 1;
+    }
+    @keyframes spin { to { transform: translateZ(10px) rotate(360deg); } }
+  
+    .profile-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.06) 2px, transparent 2px);
+      background-size: 22px 22px;
+      transform: translateZ(2px);
+      opacity: 0.35;
+      z-index: 0;
+    }
+    section { margin-top: 48px; }
+    .section-title {
+      font-size: clamp(22px, 3vw, 28px);
+      margin-bottom: 16px;
+    }
+    .grid { display: grid; gap: 16px; }
+    .card {
+      background: var(--card);
+      border: 1px solid color-mix(in oklab, var(--surface) 70%, transparent);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 10px 24px var(--shadow);
+    }
+    .skills { grid-template-columns: repeat(2, 1fr); }
+    .projects { grid-template-columns: 1fr; }
+    .project-card h3 { margin: 0 0 8px; }
+    .project-card p { color: var(--muted); margin: 0; }
+
+    .contact { display: grid; gap: 12px; grid-template-columns: 1fr; }
+    .contact .btn { width: fit-content; }
+
+    footer {
+      max-width: 1100px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (min-width: 600px) {
+      .nav-links { display: inline-flex; }
+      .hero { grid-template-columns: 1.2fr 1fr; }
+      .skills { grid-template-columns: repeat(3, 1fr); }
+      .projects { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 960px) {
+      .skills { grid-template-columns: repeat(4, 1fr); }
+      .projects { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .trail-dot {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 50;
+      transform: translate(-50%, -50%);
+      animation: trailFade 600ms ease-out forwards;
+      box-shadow: 0 0 12px currentColor;
+    }
+    @keyframes trailFade {
+      0%   { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0;   transform: translate(-50%, -50%) scale(0.4); }
+    }
+  </style>
 </head>
 <body>
-
-<!-- ================= HEADER ================= -->
-<header>
-  <nav class="navbar">
-    <div class="logo">Portfolio</div>
-
-    <ul class="navlist">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-
-    <div class="hamburger">
-      <i class="fa-solid fa-bars"></i>
-    </div>
-  </nav>
-</header>
-
-<!-- ================= HERO ================= -->
-<section class="hero" id="home">
-  <div class="content">
-    <h4>Hello, it's Me</h4>
-    <h1>Vijay <span>Gorade</span></h1>
-    <h3>And I'm a <span class="highlight">Frontend Developer</span></h3>
-
-    <p>
-      I'm a frontend web developer with over 1 year of experience.
-      I build responsive and user-friendly websites.
-    </p>
-
-    <div class="socials">
-      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="#"><i class="fa-brands fa-github"></i></a>
-    </div>
-
-    <a href="#about" class="btn">More About Me</a>
+  <div class="bg-layer">
+    <div class="code-grid"></div>
   </div>
 
- <div class="image-glow">
-  <img src="images/7083598.jpg" alt="Profile">
-</div>
+  <header>
+    <nav class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <span>Rupali • Fullstack Developer</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button id="themeToggle" class="toggle" aria-label="Toggle theme">
+        <span>🌙</span><span>Theme</span>
+      </button>
+    </nav>
+  </header>
 
-</section>
+  <main>
+    <!-- Hero / About -->
+    <section id="about" class="hero">
+      <div class="hero-text">
+        <h1>Building reliable, scalable products—end to end.</h1>
+        <p>
+          I’m a fullstack developer specializing in modern web apps:
+          React, Node.js, TypeScript, PostgreSQL, and cloud‑native deployments.
+          I care about clean architecture, performance, and delightful UX.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Hire Me</a>
+        </div>
+      </div>
 
-<!-- ================= ABOUT ================= -->
-<section class="section" id="about">
-  <h2 class="section-title">About Me</h2>
-  <p class="section-text">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor accusamus architecto error? Voluptate explicabo aspernatur neque alias, cum reprehenderit voluptatum provident obcaecati eos iste blanditiis consequuntur modi, totam omnis! Fugit.
-  </p>
+      <!-- Colorful 3D Profile -->
+      <div class="profile-3d">
+        <div class="profile-card" id="profileCard">
+          <div class="profile-glow"></div>
+          <div class="profile-grid"></div>
+          <div class="profile-img">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Rupali profile" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="grid skills">
+        <div class="card"><strong>Frontend:</strong> React, Next.js, Vite, Redux, Tailwind, CSS Modules</div>
+        <div class="card"><strong>Backend:</strong> Node.js, Express, NestJS, REST, GraphQL</div>
+        <div class="card"><strong>Database:</strong> PostgreSQL, MongoDB, Prisma, Redis</div>
+        <div class="card"><strong>DevOps:</strong> Docker, CI/CD, Cloud (AWS/GCP), Nginx</div>
+        <div class="card"><strong>Testing:</strong> Jest, Playwright, Cypress</div>
+        <div class="card"><strong>Architecture:</strong> Clean Architecture, DDD, Microservices</div>
+        <div class="card"><strong>Security:</strong> AuthN/AuthZ, JWT, OAuth2, OWASP</div>
+        <div class="card"><strong>Tooling:</strong> TypeScript, ESLint, Prettier, PNPM</div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid projects">
+        <div class="card project-card">
+          <h3>Crypto Portfolio Tracker</h3>
+          <p>Real‑time prices, wallet sync, alerts, and PWA offline support.</p>
+        </div>
+        <div class="card project-card">
+          <h3>Collaborative Docs</h3>
+          <p>CRDT‑based editor with presence, comments, and role‑based access.</p>
+        </div>
+        <div class="card project-card">
+          <h3>E‑commerce Platform</h3>
+          <p>Headless storefront, payments, analytics, and admin dashboard.</p>
+        </div>
+        <div class="card project-card">
+          <h3>DevOps Pipeline</h3>
+          <p>GitOps CI/CD with Docker, health checks, and blue‑green deploys.</p>
+        </div>
+        <div class="card project-card">
+          <h3>Realtime Chat</h3>
+          <p>WebSockets, end‑to‑end encryption, and message search.</p>
+        </div>
+        <div class="card project-card">
+          <h3>Analytics Hub</h3>
+          <p>ETL jobs, dashboards, and anomaly detection with alerts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact">
+        <p>Open to freelance and full‑time roles. Let’s build something meaningful.</p>
+        <a class="btn primary" href="mailto:hello@yourmail.com">Email Me</a>
+        <a class="btn" href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Rupali • Fullstack Developer
+  </footer>
+
  
-</section>
-
-<!-- ================= SERVICES ================= -->
-<section class="section dark" id="services">
-  <h2 class="section-title">Services</h2>
-
-  <div class="grid">
-    <div class="card">
-      <i class="fa-solid fa-code"></i>
-      <h3>Web Development</h3>
-      <p>Modern & responsive websites.</p>
-    </div>
-
-    <div class="card">
-      <i class="fa-solid fa-palette"></i>
-      <h3>UI Design</h3>
-      <p>Clean & creative interfaces.</p>
-    </div>
-
-    <div class="card">
-      <i class="fa-solid fa-mobile"></i>
-      <h3>Responsive Design</h3>
-      <p>Mobile friendly layouts.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= SKILLS ================= -->
-<section class="section" id="skills">
-  <h2 class="section-title">Skills</h2>
-
-  <div class="skills">
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-    <span>Bootstrap</span>
-    <span>Git</span>
-  </div>
-</section>
-
-<!-- ================= PROJECTS ================= -->
-<section class="section dark" id="projects">
-  <h2 class="section-title">Projects</h2>
-
-  <div class="grid">
-    <div class="card">Portfolio Website</div>
-    <div class="card">Bakery Website</div>
-    <div class="card">Landing Page</div>
-  </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section class="section" id="contact">
-  <h2 class="section-title">Contact Me</h2>
-
-  <form class="contact-form">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message"></textarea>
-    <button class="btn">Send Message</button>
-  </form>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-  <p>© 2025 Vijay Gorade | All Rights Reserved</p>
-</footer>
-
-<script src="script.js"></script>
 </body>
+ <script>
+   
+    const root = document.documentElement;
+    const toggleBtn = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme') || 'dark';
+    if (saved === 'light') root.classList.add('theme-light');
+
+    const setIcon = () => {
+      toggleBtn.firstElementChild.textContent =
+        root.classList.contains('theme-light') ? '☀️' : '🌙';
+    };
+    setIcon();
+
+    toggleBtn.addEventListener('click', () => {
+      root.classList.toggle('theme-light');
+      localStorage.setItem(
+        'theme',
+        root.classList.contains('theme-light') ? 'light' : 'dark'
+      );
+      setIcon();
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    
+    const bg = document.querySelector('.bg-layer');
+    const makeBubble = () => {
+      const b = document.createElement('span');
+      b.className = 'bubble';
+      const size = Math.random() * 80 + 20; // 20–100px
+      const x = (Math.random() * window.innerWidth - window.innerWidth / 2) + 'px';
+      const s = (Math.random() * 0.6 + 0.6).toFixed(2);
+      const dur = (Math.random() * 12 + 10).toFixed(1) + 's';
+      b.style.width = size + 'px';
+      b.style.height = size + 'px';
+      b.style.left = Math.random() * 100 + 'vw';
+      b.style.setProperty('--x', x);
+      b.style.setProperty('--s', s);
+      b.style.setProperty('--dur', dur);
+      bg.appendChild(b);
+      setTimeout(() => b.remove(), 20000);
+    };
+    for (let i = 0; i < 18; i++) setTimeout(makeBubble, i * 500);
+    setInterval(makeBubble, 1200);
+
+    
+    const card = document.getElementById('profileCard');
+    const damp = 20; // tilt intensity
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rx = ((y / rect.height) - 0.5) * -damp;
+      const ry = ((x / rect.width) - 0.5) * damp;
+      card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+
+    
+    const colors = ['#7c5cff', '#00d4ff', '#ff6b6b', '#ffd93d', '#4ade80'];
+    let colorIndex = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      const dot = document.createElement('div');
+      dot.className = 'trail-dot';
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+      dot.style.color = colors[colorIndex];
+      dot.style.background = colors[colorIndex];
+      colorIndex = (colorIndex + 1) % colors.length;
+      document.body.appendChild(dot);
+      setTimeout(() => dot.remove(), 600);
+    });
+
+    // Accessibility: show a minimal cursor when keyboard is used
+    window.addEventListener('keydown', () => {
+      document.body.style.cursor = 'default';
+      setTimeout(() => { document.body.style.cursor = 'none'; }, 1200);
+    });
+  </script>
 </html>
