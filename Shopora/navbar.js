@@ -39,8 +39,7 @@ function toggleDarkMode() {
   }
 }
 
-// darktoggle.addEventListener("click", toggleDarkMode);
-// mobileDarkToggle.addEventListener("click", toggleDarkMode);
+
 
 
 // menu
@@ -48,7 +47,7 @@ function toggleDarkMode() {
 const menuBtn = document.getElementById("menu-btn");
 const mobileMenu = document.getElementById("mobile-menu");
 const closeBtn = document.getElementById("close-btn");
-const menuOverlay = document.getElementById("menu-overlay"); // id match karo
+const menuOverlay = document.getElementById("mobile-overlay"); // id match karo
 
 menuBtn.addEventListener("click", () => {
   mobileMenu.classList.add("active");
