@@ -33,4 +33,72 @@ document.addEventListener("DomContentLoaded",()=>{
     const priceValue = document.getElementById("priceValue");
     const sortOptions = document.getElementById("sortOptions");
     const resetFiltersBtn = document.getElementById("resetFiltersBtn");
+
+    let allProducts = [];
+    const filters = {
+        searchQuery:"",
+        category: new Set(),
+        brand: new Set(),
+        gender: new Set(),
+        color: new Set(),
+        gender: new Set(),
+        maxPrice: 5000,
+        sort:"default",
+    };
+
+    const initialize = ()=>{
+        allProducts = allProducts;
+        setupFilters();
+        readFiltersFromUrl();
+        updateUIFromFilters();
+        addEventListeners();
+        applyFiltersAndSort();
+    };
+
+    const setupFilters = ()=>{
+        const category = [
+            ...new Set(allProducts.flatMap((p) => p.category))
+        ];
+        const genders = [...new Set(allProducts.flatMap((p)=>p.gender))
+
+        ];
+        const brands = [...new Set(allProducts.flatMap((p)=> p.brand))
+
+        ];
+        const colors = [...new Set(allProducts.flatMap((p)=> p.color))
+
+        ];
+        createCheckboxFilters(genderFilters, genders, "gender");
+        createCheckboxFilters(categoryFilters, categoryFilters, "category");
+        createCheckboxFilters(brandFilters, brands, "brand");
+        // createCheckboxFilters(genderFilters, genders, "gender");
+        createColorSwatches(colorFilters, colors, "color");
+        const maxPrice = Math.ceil(
+            Math.max(...allProducts.map((p)=>p.price))
+        );
+        priceRange.max = maxPrice;
+    };
+
+    const createCheckboxFilters = (container, item, type)=>{
+        container.innerHTML = ""; //Clear previous
+        items.forEach((item)=>{
+            const label = document.createElement("label");
+            label.innerHTML = `<input type="checkbox" data-filter-type="${type}" value="${item}"
+            >${item}`;
+            container.appendChild(label);
+        });
+    }
+
+    const createColorSwatches = (container, colors, type)=>{
+        container.HTML = ""; //Clear previous
+        colors.forEach((color)=>{
+            const swatch = document.createElement("div");
+            swatch.className("color-swatch");
+            swatch.style.backgroundColor = color;
+            swatch.dataset.filterType = type;
+            swatch.dataset.value = color;
+            container.appendChild(swatch);
+        });
+    }
+
 });
