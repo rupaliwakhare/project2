@@ -15,3 +15,10 @@ closeSidebar.addEventListener("click",()=>{
     sidebar_overlay.classList.remove("active");
     document.body.style.overflow = "";
 });
+sidebar_overlay.addEventListener("click",()=>{
+    sidebar.classList.remove("show");
+    sidebar_overlay.classList.remove("active");
+    document.body.style.overflow = "";
+});
+// products filters
+document.addEventListener("DomC")
