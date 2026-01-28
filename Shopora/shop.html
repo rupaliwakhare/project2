@@ -265,65 +265,68 @@
     <div class="menu-overlay" id="mobile-overlay"></div>
 
     <!-- porducts -->
-     <div class="page-container container">
-        <aside class="sidebar" id="sidebar">
-            <button id="closeSidebar" class="filter-btn close-sidebar-btn btn">
-                ✖
-            </button>
-            <h2>
-                Filters
-            </h2>
-            <div class="filter-group">
-                <div id="genderFilters"></div>
-            </div>
-            <div class="filter-group">
-                <h3>Category</h3>
-                <div id="categoryFilters"> </div>
-            </div>
-            <div class="filter-group">
-                <h3>Brand</h3>
-                <div id="brandFilters"> </div>
-            </div>
-            <div class="filter-group">
-                <h3>Color</h3>
-                <div id="colorFilters" class="color-swatch-container"> </div>
-            </div>
-            <div class="filter-group">
-                <h3>Price Range</h3>
-                <div class="price-range">
-                    <input type="range" id="priceRange" min="0" max="200" step="1" value="200">
-                    <span id="priceValue">₹5000</span>
-                </div>
-            </div>
-            <div class="filter-group">
-                <button id="resetFilterBtn" class="reset-button">
-                    Reset All Filters
-                </button>
-            </div>
-        </aside>
-        <main class="product-container">
-            <header class="product-header">
-                <span id="productCount"></span>
-            <div class="filterSort">
-                <button id="openSidebar" class="filter-btn open-btn">
-                     ≡ Filters
-                </button>
-                <div class="sort-container">
-                    <label for="sortOptions">Sort by:</label>
-                    <select id="sortOptions">
-                        <option value="default">Default</option>
-                        <option value="price-asc">Price: Low to High</option>
-                        <option value="price-desc">Price: High to Low</option>
-                        <option value="name-asc">Name: A to Z</option>
-                        <option value="name-desc">Name: Z to A</option>
-                    </select>
-                </div>
-            </div>
-            </header>
-           <div class="productGrid" class="product-grid"></div>
-        </main>
-     </div>
-     <div id="sidebar-overlay" class="sidebar-overlay"></div>
+   <div class="page-container container">
+  <aside class="sidebar" id="sidebar">
+    <button id="closeSidebar" class="filter-btn close-sidebar-btn btn">✖</button>
+    <h2>Filters</h2>
+
+    <div class="filter-group">
+      <h3>Gender</h3>
+      <div id="genderFilters"></div>
+    </div>
+
+    <div class="filter-group">
+      <h3>Category</h3>
+      <div id="categoryFilters"></div>
+    </div>
+
+    <div class="filter-group">
+      <h3>Brand</h3>
+      <div id="brandFilters"></div>
+    </div>
+
+    <div class="filter-group">
+      <h3>Color</h3>
+      <div id="colorFilters" class="color-swatch-container"></div>
+    </div>
+
+    <div class="filter-group">
+      <h3>Price Range</h3>
+      <div class="price-range">
+        <input type="range" id="priceRange" min="0" max="0" step="1" value="0">
+        <span id="priceValue">₹0</span>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <button id="resetFiltersBtn" class="reset-button">Reset All Filters</button>
+    </div>
+  </aside>
+
+  <main class="product-container">
+    <header class="product-header">
+      <span id="productCount"></span>
+      <div class="filterSort">
+        <button id="openSidebar" class="filter-btn open-btn">≡ Filters</button>
+        <div class="sort-container">
+          <label for="sortOptions">Sort by:</label>
+          <select id="sortOptions">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+            <option value="name-desc">Name: Z to A</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <div id="productGrid" class="product-grid"></div>
+  </main>
+</div>
+
+<div id="sidebar-overlay" class="sidebar-overlay"></div>
+
  <!-- footer -->
    <footer class="main-footer">
   <div class="footer-content">
