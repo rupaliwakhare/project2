@@ -398,6 +398,7 @@ sidebarOverlay.addEventListener("click", closeSidebarFn);
 
 // ================= FILTERS =================
 document.addEventListener("DOMContentLoaded", () => {
+  //  document.body.style.border = "5px solid green";
   const productGrid = document.getElementById("productGrid");
   const productCount = document.getElementById("productCount");
   const searchInput = document.getElementById("searchInput");
