@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const optionsContainer = button.closest(selector);
         if (optionsContainer) {
           const options = optionsContainer.querySelectorAll(
-            `.${button.classList[0]}`
+            `.${button.classList[0]}`,
           );
           options.forEach((opt) => opt.classList.remove(selectedClass));
           button.classList.add(selectedClass);
@@ -206,31 +206,31 @@ document.addEventListener("DOMContentLoaded", () => {
     if (searchQueryFormURL) {
       filters.searchQuery = searchQueryFormURL.toLowerCase();
       filteredProducts = filteredProducts.filter((p) =>
-        p.name.toLowerCase().includes(filters.searchQuery)
+        p.name.toLowerCase().includes(filters.searchQuery),
       );
     }
     if (filters.gender.size > 0) {
       filteredProducts = filteredProducts.filter((p) =>
-        filters.gender.has(p.gender)
+        filters.gender.has(p.gender),
       );
     }
     if (filters.category.size > 0) {
       filteredProducts = filteredProducts.filter((p) =>
-        filters.category.has(p.category)
+        filters.category.has(p.category),
       );
     }
     if (filters.brand.size > 0) {
       filteredProducts = filteredProducts.filter((p) =>
-        filters.brand.has(p.brand)
+        filters.brand.has(p.brand),
       );
     }
     if (filters.color.size > 0) {
       filteredProducts = filteredProducts.filter((p) =>
-        p.colors.some((color) => filters.color.has(color))
+        p.colors.some((color) => filters.color.has(color)),
       );
     }
     filteredProducts = filteredProducts.filter(
-      (p) => p.price <= filters.maxPrice
+      (p) => p.price <= filters.maxPrice,
     );
 
     const sortValue = filters.sort;
@@ -246,7 +246,8 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProducts(filteredProducts);
     updateUIFromFilters();
   };
-    const updateUIFromFilters = () => {
+
+  const updateUIFromFilters = () => {
     const params = new URLSearchParams();
 
     if (filters.searchQuery) params.set("search", filters.searchQuery);
@@ -350,7 +351,9 @@ document.addEventListener("DOMContentLoaded", () => {
       priceRange.value = priceRange.max;
       priceValue.textContent = priceRange.max;
       document
-        .querySelectorAll("#categoryFilters input, #brandFilters input, #genderFilters input")
+        .querySelectorAll(
+          "#categoryFilters input, #brandFilters input, #genderFilters input",
+        )
         .forEach((input) => (input.checked = false));
       document
         .querySelectorAll("#colorFilters .color-swatch")
@@ -360,8 +363,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // initialize everything
+  
   initialize();
 });
-
-
