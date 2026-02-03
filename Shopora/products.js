@@ -2,7 +2,7 @@
 const products = [
   {
     id: 1,
-    name: "Women's Desk-to-Dinner Cotton Stretch Formal Shirt",
+    name: "Cotton Stretch Formal Shirt",
     slug: "womens-cotton-stretch-formal-shirt",
     description:
       "Smart cuffs on the sleeves, button down, stylish office wear.",

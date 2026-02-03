@@ -187,6 +187,76 @@ body {
   color: #111;
 }
 
+.sizes {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.size-btn {
+  padding: 6px 12px;
+  border: none;
+  background: rgb(209, 33, 92);
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.size-btn:hover {
+  border-color: rgb(209, 33, 92);
+
+}
+
+.size-btn.active {
+  background: #e60776;
+  color: #fff;
+  border-color: #000;
+}
+/* ===== ADD TO CART BUTTON ===== */
+.add-to-cart-btn {
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #ff9f00, #fb641b);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+/* cart icon */
+.add-to-cart-btn i {
+  font-size: 14px;
+}
+
+/* hover effect */
+.add-to-cart-btn:hover {
+  background: linear-gradient(135deg, #fb641b, #ff9f00);
+  box-shadow: 0 6px 15px rgba(251, 100, 27, 0.4);
+  transform: translateY(-2px);
+}
+
+/* click effect */
+.add-to-cart-btn:active {
+  transform: scale(0.97);
+}
+
+/* disabled (agar future me use karo) */
+.add-to-cart-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 /* ================= SIDEBAR OVERLAY ================= */
 .sidebar-overlay {
   display: none;
