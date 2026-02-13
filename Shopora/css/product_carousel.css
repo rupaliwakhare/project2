@@ -69,7 +69,7 @@
 }
 
 .product-image-container {
-  height: 180px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,9 +78,9 @@
 }
 
 .product-image-container img {
-  width: 90%;
-  height: 180px;
-  object-fit: cover; 
+  width: 100%;
+  height: 190px;
+  /* object-fit: cover;  */
 }
 
 .discount-badge {

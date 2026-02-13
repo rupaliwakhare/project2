@@ -17,8 +17,8 @@ if (localStorage.getItem("darkMode") === "enabled") {
   body.classList.remove("dark-mode");
   darktoggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
   mobileDarkToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-  navLogo.src = "images/logo (4).png";
-  footerLogo.src = "images/logo (4).png";
+  navLogo.src = "images/light_logo1.png";
+  footerLogo.src = "images/light_logo1.png";
 }
 
 function toggleDarkMode() {
@@ -27,8 +27,8 @@ function toggleDarkMode() {
     localStorage.setItem("darkMode", "disabled");
     darktoggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
     mobileDarkToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-    navLogo.src = "images/logo (4).png";
-    footerLogo.src = "images/logo (4).png";
+    navLogo.src = "images/light_logo1.png";
+    footerLogo.src = "images/light_logo1.png";
   } else {
     body.classList.add("dark-mode");
     localStorage.setItem("darkMode", "enabled");
