@@ -47,7 +47,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   cursor: none; /* design cursor */
   background-image: radial-gradient(
-    rgba(11, 225, 233, 0.986) 2px,
+    rgba(138, 139, 139, 0.986) 2px,
     /* dot size bigger */ transparent 2px
   );
   background-size: 30px 30px; /* spacing between dots */
