@@ -180,20 +180,33 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    list.forEach(p => {
-      productGrid.innerHTML += `
-        <div class="product-card" data-id="${p.id}">
-          <img src="${p.images[0]}" alt="${p.name}">
-          <h4>${p.name}</h4>
-          <p class="brand">${p.brand}</p>
-          <p class="price">₹${p.price}</p>
-          <div class="sizes">
-            ${p.sizes.map(size => `<button class="size-btn">${size}</button>`).join("")}
-          </div>
-          <button class="add-to-cart-btn"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
-        </div>
-      `;
-    });
+  list.forEach((p) => {
+    productGrid.innerHTML += `
+    <div class="product-card" data-id="${p.id}">
+
+      <div class="img-container">
+        <img src="${p.images[0]}" alt="${p.name}">
+        
+        <button class="like-btn">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+      </div>
+
+      <h4>${p.name}</h4>
+      <p class="brand">${p.brand}</p>
+      <p class="price">₹${p.price}</p>
+
+      <div class="sizes">
+        ${p.sizes.map((size) => `<button class="size-btn">${size}</button>`).join("")}
+      </div>
+
+      <button class="add-to-cart-btn">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+      </button>
+
+    </div>
+  `;
+  });
 
     productCount.textContent = `${list.length} Product(s) found`;
   }
@@ -208,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
       sizeContainer.querySelectorAll(".size-btn").forEach(btn => btn.classList.remove("active"));
       target.classList.add("active");
     }
-
+   
     // ADD TO CART
     if (target.classList.contains("add-to-cart-btn")) {
       const productCard = target.closest(".product-card");
@@ -309,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applyFilters();
   });
 
-  // SEARCH FORM - submit type (reloads page with query param)
+// serch
   const searchForm = document.querySelector("form[action='shop.html']");
   if (searchForm) {
     searchForm.addEventListener("submit", e => {
@@ -319,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // -------- INIT --------
+ 
   setupFilters();
   applyFilters();
 });

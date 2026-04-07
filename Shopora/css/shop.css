@@ -7,9 +7,9 @@
 
 body {
   font-family: "Inter", system-ui, sans-serif;
- 
-    background: var(--bg-color);
-    color: var(--text-color);
+
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
 /* ================= LAYOUT ================= */
@@ -176,6 +176,40 @@ body {
   /* object-fit: cover; */
   border-radius: 10px;
   margin-bottom: 10px;
+}
+.img-container {
+  position: relative;
+}
+.img-container {
+  position: relative;
+}
+
+.like-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  border: none;
+  padding: 0;             
+  background: transparent; 
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 2;
+}
+
+/* ICON */
+.like-btn i {
+  font-size: 20px;
+  color: rgb(209, 33, 92);  
+}
+
+/* CLICK */
+.like-btn.active i {
+  color: rgb(209, 33, 92);   
 }
 
 .product-card h4 {
