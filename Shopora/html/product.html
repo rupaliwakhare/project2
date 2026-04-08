@@ -13,7 +13,6 @@
     />
 </head>
 <body>
-    <h1>Hello</h1>
       <!-- Header -->
     <header class="main-header">
       <nav class="navbar">
@@ -324,5 +323,50 @@
   </div>
 </footer>
 </body>
+<script>
+    
+// toggle theme and logo
+
+const darktoggle = document.getElementById("dark-toggle");
+const mobileDarkToggle = document.getElementById("mobile-dark-toggle");
+const body = document.body;
+const navLogo = document.getElementById("nav-logo");
+const footerLogo = document.getElementById("footer-logo");
+
+// Page load par check karo
+if (localStorage.getItem("darkMode") === "enabled") {
+  body.classList.add("dark-mode");
+  darktoggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+  mobileDarkToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+  navLogo.src = "../images/dark_logo1.png";
+  footerLogo.src = "../images/dark_logo1.png";
+} else {
+  body.classList.remove("dark-mode");
+  darktoggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  mobileDarkToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  navLogo.src = "../images/light_logo1.png";
+  footerLogo.src = "../images/light_logo1.png";
+}
+
+function toggleDarkMode() {
+  if (body.classList.contains("dark-mode")) {
+    body.classList.remove("dark-mode");
+    localStorage.setItem("darkMode", "disabled");
+    darktoggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    mobileDarkToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    navLogo.src = "../images/light_logo1.png";
+    footerLogo.src = "../images/light_logo1.png";
+  } else {
+    body.classList.add("dark-mode");
+    localStorage.setItem("darkMode", "enabled");
+    darktoggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    mobileDarkToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    navLogo.src = "../images/dark_logo1.png";
+    footerLogo.src = "i../mages/dark_logo1.png";
+  }
+}
+
+
+</script>
 <script src="../script/navbar.js"></script>
 </html>
