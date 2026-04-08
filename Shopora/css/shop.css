@@ -252,6 +252,31 @@ body {
   color: #fff;
   border-color: #000;
 }
+
+.colors {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  transition: transform 0.2s ease;
+}
+
+.color-dot:hover {
+  transform: scale(1.2);
+}
+
+/* selected color */
+.color-dot.active {
+  border: 2px solid black;
+  transform: scale(1.2);
+}
 /* ===== ADD TO CART BUTTON ===== */
 .add-to-cart-btn {
   width: 100%;

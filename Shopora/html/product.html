@@ -264,6 +264,12 @@
     </div>
     <!-- menu-overylay -->
     <div class="menu-overlay" id="mobile-overlay"></div>
+
+    <!-- product detaile -->
+     <div id="productDetail" class="product-container">
+
+     </div>
+
 <!-- footer -->
    <footer class="main-footer">
   <div class="footer-content">
@@ -391,7 +397,45 @@ function toggleDarkMode() {
   }
 }
 
+// products
+
+const productDetail = document.getElementById("productDetail");
+const getQueryParam = (param)=>{
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+
+}
+const slug = getQueryParam("slug");
+const product = products.find((p)=>p.slug === slug);
+
+const renderProductDetail = ()=>{
+ if(!product){
+    productDetail.innerHTML="<p>Product not found.</p>"
+    return;
+ }
+ const colorHTML = product.colors
+ .map(
+    (color,i)=>`
+    <div class="color-dot ${
+    i === 0 ? "selected" : ""
+    }" style="background:${color}" data-color="${color}"></div>
+    `
+ )
+ .join("");
+
+ const sizeHTMLL = product.sizes
+ .map(
+    (size,i)=>`
+    <span class="size-option ${
+    i === 0 ? "selected" : ""
+    }" data-sizes="${size}">${size}</span>
+    `
+
+ )
+ .join("");
+}
 
 </script>
+<script src="../script/products.js"></script>
 
 </html>

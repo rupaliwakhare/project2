@@ -199,7 +199,15 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="sizes">
         ${p.sizes.map((size) => `<button class="size-btn">${size}</button>`).join("")}
       </div>
-
+     <div class="colors">
+  ${p.color
+    .map(
+      (color) => `
+    <span class="color-dot" style="background:${color}" title="${color}"></span>
+  `,
+    )
+    .join("")}
+</div>
       <button class="add-to-cart-btn">
         <i class="fa-solid fa-cart-shopping"></i> Add to Cart
       </button>
@@ -223,6 +231,13 @@ document.addEventListener("DOMContentLoaded", () => {
         .forEach((btn) => btn.classList.remove("active"));
       target.classList.add("active");
     }
+    // 🎨 COLOR SELECT
+if (target.classList.contains("color-dot")) {
+  const parent = target.parentElement;
+
+  parent.querySelectorAll(".color-dot").forEach(dot => dot.classList.remove("active"));
+  target.classList.add("active");
+}
 
     // ADD TO CART
     if (target.classList.contains("add-to-cart-btn")) {
