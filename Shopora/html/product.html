@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail</title>
+    <link rel="shortcut icon" href="../images/light_logo1.png" type="image/x-icon" />
     <link rel="stylesheet" href="../css/style.css">
      <link
       rel="stylesheet"
@@ -325,6 +326,30 @@
 </body>
 <script>
     
+    // menu
+
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+const closeBtn = document.getElementById("close-btn");
+const menuOverlay = document.getElementById("mobile-overlay"); // id match karo
+
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.add("active");
+  menuOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+});
+
+closeBtn.addEventListener("click", () => {
+  mobileMenu.classList.remove("active");
+  menuOverlay.classList.remove("active");
+  document.body.style.overflow = "auto";
+});
+menuOverlay.addEventListener("click",()=>{
+    mobileMenu.classList.remove("active");
+    menuOverlay.classList.remove("active");
+    document.body.style.overflow = "auto"
+})
+
 // toggle theme and logo
 
 const darktoggle = document.getElementById("dark-toggle");
@@ -368,5 +393,5 @@ function toggleDarkMode() {
 
 
 </script>
-<script src="../script/navbar.js"></script>
+
 </html>
