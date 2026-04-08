@@ -218,10 +218,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // SIZE BUTTON
     if (target.classList.contains("size-btn")) {
       const sizeContainer = target.parentElement;
-      sizeContainer.querySelectorAll(".size-btn").forEach(btn => btn.classList.remove("active"));
+      sizeContainer
+        .querySelectorAll(".size-btn")
+        .forEach((btn) => btn.classList.remove("active"));
       target.classList.add("active");
     }
-   
+
     // ADD TO CART
     if (target.classList.contains("add-to-cart-btn")) {
       const productCard = target.closest(".product-card");
@@ -236,10 +238,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const cartItem = {
         productId,
         name: productCard.querySelector("h4").innerText,
-        price: Number(productCard.querySelector(".price").innerText.replace("₹","")),
+        price: Number(
+          productCard.querySelector(".price").innerText.replace("₹", ""),
+        ),
         size: selectedSize.innerText,
         quantity: 1,
-        image: productCard.querySelector("img").src
+        image: productCard.querySelector("img").src,
       };
 
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -247,6 +251,28 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("cart", JSON.stringify(cart));
 
       alert("Product added to cart!");
+    }
+  
+      if (target.closest(".product-card")) {
+        const card = target.closest(".product-card");
+        const productId = card.dataset.id;
+
+        window.location.href = `product.html?id=${productId}`;
+      }
+
+    if (target.closest(".like-btn")) {
+      const btn = target.closest(".like-btn");
+      btn.classList.toggle("active");
+
+      const icon = btn.querySelector("i");
+
+      if (btn.classList.contains("active")) {
+        icon.classList.remove("fa-regular");
+        icon.classList.add("fa-solid");
+      } else {
+        icon.classList.remove("fa-solid");
+        icon.classList.add("fa-regular");
+      }
     }
   });
 
