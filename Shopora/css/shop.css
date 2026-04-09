@@ -252,7 +252,6 @@ body {
   color: #fff;
   border-color: #000;
 }
-
 .colors {
   display: flex;
   gap: 6px;
@@ -264,19 +263,14 @@ body {
   height: 16px;
   border-radius: 50%;
   cursor: pointer;
-  border: 1px solid #ccc;
-  transition: transform 0.2s ease;
+  border: 2px solid transparent;
 }
 
-.color-dot:hover {
-  transform: scale(1.2);
-}
-
-/* selected color */
 .color-dot.active {
-  border: 2px solid black;
+  border: 2px solid rgb(83, 69, 69);
   transform: scale(1.2);
 }
+
 /* ===== ADD TO CART BUTTON ===== */
 .add-to-cart-btn {
   width: 100%;

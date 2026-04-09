@@ -219,78 +219,162 @@ document.addEventListener("DOMContentLoaded", () => {
     productCount.textContent = `${list.length} Product(s) found`;
   }
 
-  // -------- SIZE SELECTION & ADD TO CART --------
-  productGrid.addEventListener("click", (e) => {
-    const target = e.target;
+//   // -------- SIZE SELECTION & ADD TO CART --------
+//   productGrid.addEventListener("click", (e) => {
+//     const target = e.target;
 
-    // SIZE BUTTON
-    if (target.classList.contains("size-btn")) {
-      const sizeContainer = target.parentElement;
-      sizeContainer
-        .querySelectorAll(".size-btn")
-        .forEach((btn) => btn.classList.remove("active"));
-      target.classList.add("active");
-    }
-    // 🎨 COLOR SELECT
-if (target.classList.contains("color-dot")) {
-  const parent = target.parentElement;
+//     // SIZE BUTTON
+//     if (target.classList.contains("size-btn")) {
+//       const sizeContainer = target.parentElement;
+//       sizeContainer
+//         .querySelectorAll(".size-btn")
+//         .forEach((btn) => btn.classList.remove("active"));
+//       target.classList.add("active");
+//     }
+//     // 🎨 COLOR SELECT
+// if (target.classList.contains("color-dot")) {
+//   const parent = target.parentElement;
 
-  parent.querySelectorAll(".color-dot").forEach(dot => dot.classList.remove("active"));
-  target.classList.add("active");
-}
+//   parent.querySelectorAll(".color-dot").forEach(dot => dot.classList.remove("active"));
+//   target.classList.add("active");
+// }
 
-    // ADD TO CART
-    if (target.classList.contains("add-to-cart-btn")) {
-      const productCard = target.closest(".product-card");
-      const productId = productCard.dataset.id;
-      const selectedSize = productCard.querySelector(".size-btn.active");
+//     // ADD TO CART
+//     if (target.classList.contains("add-to-cart-btn")) {
+//       const productCard = target.closest(".product-card");
+//       const productId = productCard.dataset.id;
+//       const selectedSize = productCard.querySelector(".size-btn.active");
 
-      if (!selectedSize) {
-        alert("Please select a size first");
-        return;
-      }
+//       if (!selectedSize) {
+//         alert("Please select a size first");
+//         return;
+//       }
 
-      const cartItem = {
-        productId,
-        name: productCard.querySelector("h4").innerText,
-        price: Number(
-          productCard.querySelector(".price").innerText.replace("₹", ""),
-        ),
-        size: selectedSize.innerText,
-        quantity: 1,
-        image: productCard.querySelector("img").src,
-      };
+//       const cartItem = {
+//         productId,
+//         name: productCard.querySelector("h4").innerText,
+//         price: Number(
+//           productCard.querySelector(".price").innerText.replace("₹", ""),
+//         ),
+//         size: selectedSize.innerText,
+//         quantity: 1,
+//         image: productCard.querySelector("img").src,
+//       };
 
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      cart.push(cartItem);
-      localStorage.setItem("cart", JSON.stringify(cart));
+//       let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//       cart.push(cartItem);
+//       localStorage.setItem("cart", JSON.stringify(cart));
 
-      alert("Product added to cart!");
-    }
+//       alert("Product added to cart!");
+//     }
   
-      if (target.closest(".product-card")) {
-        const card = target.closest(".product-card");
-        const productId = card.dataset.id;
+//       // if (target.closest(".product-card")) {
+//       //   const card = target.closest(".product-card");
+//       //   const productId = card.dataset.id;
 
-        window.location.href = `product.html?id=${productId}`;
-      }
+//       //   window.location.href = `product.html?id=${productId}`;
+//       // }
 
-    if (target.closest(".like-btn")) {
-      const btn = target.closest(".like-btn");
-      btn.classList.toggle("active");
+//     if (target.closest(".like-btn")) {
+//       const btn = target.closest(".like-btn");
+//       btn.classList.toggle("active");
 
-      const icon = btn.querySelector("i");
+//       const icon = btn.querySelector("i");
 
-      if (btn.classList.contains("active")) {
-        icon.classList.remove("fa-regular");
-        icon.classList.add("fa-solid");
-      } else {
-        icon.classList.remove("fa-solid");
-        icon.classList.add("fa-regular");
-      }
+//       if (btn.classList.contains("active")) {
+//         icon.classList.remove("fa-regular");
+//         icon.classList.add("fa-solid");
+//       } else {
+//         icon.classList.remove("fa-solid");
+//         icon.classList.add("fa-regular");
+//       }
+//     }
+//   });
+productGrid.addEventListener("click", (e) => {
+  const target = e.target;
+
+  // ❤️ LIKE BUTTON
+  if (target.closest(".like-btn")) {
+    e.stopPropagation();
+
+    const btn = target.closest(".like-btn");
+    btn.classList.toggle("active");
+
+    const icon = btn.querySelector("i");
+
+    if (btn.classList.contains("active")) {
+      icon.classList.remove("fa-regular");
+      icon.classList.add("fa-solid");
+    } else {
+      icon.classList.remove("fa-solid");
+      icon.classList.add("fa-regular");
     }
-  });
+    return;
+  }
 
+  // 🎨 COLOR SELECT
+  if (target.classList.contains("color-dot")) {
+    e.stopPropagation();
+
+    const parent = target.parentElement;
+    parent
+      .querySelectorAll(".color-dot")
+      .forEach((dot) => dot.classList.remove("active"));
+    target.classList.add("active");
+    return;
+  }
+
+  // 📏 SIZE SELECT
+  if (target.classList.contains("size-btn")) {
+    e.stopPropagation();
+
+    const parent = target.parentElement;
+    parent
+      .querySelectorAll(".size-btn")
+      .forEach((btn) => btn.classList.remove("active"));
+    target.classList.add("active");
+    return;
+  }
+
+  // 🛒 ADD TO CART
+  if (target.classList.contains("add-to-cart-btn")) {
+    e.stopPropagation();
+
+    const productCard = target.closest(".product-card");
+    const productId = productCard.dataset.id;
+    const selectedSize = productCard.querySelector(".size-btn.active");
+
+    if (!selectedSize) {
+      alert("Please select a size first");
+      return;
+    }
+
+    const cartItem = {
+      productId,
+      name: productCard.querySelector("h4").innerText,
+      price: Number(
+        productCard.querySelector(".price").innerText.replace("₹", ""),
+      ),
+      size: selectedSize.innerText,
+      quantity: 1,
+      image: productCard.querySelector("img").src,
+    };
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(cartItem);
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Product added to cart!");
+    return;
+  }
+
+  // 🧭 PRODUCT PAGE OPEN (SIRF YAHAN)
+  const card = target.closest(".product-card");
+  if (card) {
+    const productId = card.dataset.id;
+    window.location.href = `product.html?id=${productId}`;
+  }
+});
   // -------- APPLY FILTERS --------
   function applyFilters() {
     let filtered = [...allProducts];
@@ -377,3 +461,4 @@ if (target.classList.contains("color-dot")) {
   setupFilters();
   applyFilters();
 });
+
