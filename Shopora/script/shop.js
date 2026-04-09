@@ -196,17 +196,22 @@ document.addEventListener("DOMContentLoaded", () => {
       <p class="brand">${p.brand}</p>
       <p class="price">₹${p.price}</p>
 
-      <div class="sizes">
-        ${p.sizes.map((size) => `<button class="size-btn">${size}</button>`).join("")}
-      </div>
-     <div class="colors">
-  ${p.color
-    .map(
-      (color) => `
-    <span class="color-dot" style="background:${color}" title="${color}"></span>
-  `,
-    )
-    .join("")}
+     <div class="variant-row">
+
+  <div class="sizes">
+    ${p.sizes.map((size) => `<button class="size-btn">${size}</button>`).join("")}
+  </div>
+
+  <div class="colors">
+    ${p.color
+      .map(
+        (color) => `
+      <span class="color-dot" style="background:${color}" title="${color}"></span>
+    `,
+      )
+      .join("")}
+  </div>
+
 </div>
       <button class="add-to-cart-btn">
         <i class="fa-solid fa-cart-shopping"></i> Add to Cart

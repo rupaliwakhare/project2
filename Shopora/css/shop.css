@@ -227,48 +227,57 @@ body {
   font-weight: 600;
 }
 
+/* ===== SIZE + COLOR SAME LINE ===== */
+.variant-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* SIZE */
 .sizes {
   display: flex;
-  gap: 8px;
-  margin-top: 8px;
+  gap: 6px;
 }
 
 .size-btn {
-  padding: 6px 12px;
-  border: none;
-  background: rgb(209, 33, 92);
+  padding: 5px 10px;
+ border:  rgb(209, 33, 92);
+ background: rgb(209, 33, 92);
+  font-size: 12px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.size-btn:hover {
-  border-color: rgb(209, 33, 92);
 }
 
 .size-btn.active {
-  background: #e60776;
-  color: #fff;
-  border-color: #000;
+  background: rgb(243, 11, 88);
+  color: white;
 }
+
+/* COLORS */
 .colors {
   display: flex;
   gap: 6px;
-  margin-top: 8px;
 }
 
+/* DOT STYLE */
 .color-dot {
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
   border-radius: 50%;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 2px solid #eee;
+  transition: 0.2s;
+}
+
+.color-dot:hover {
+  transform: scale(1.2);
 }
 
 .color-dot.active {
-  border: 2px solid rgb(83, 69, 69);
-  transform: scale(1.2);
+  /* border: 2px solid black; */
+  transform: scale(1.3);
 }
 
 /* ===== ADD TO CART BUTTON ===== */
