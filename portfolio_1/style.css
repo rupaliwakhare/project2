@@ -45,12 +45,12 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none; /* design cursor */
+  cursor: none; 
   background-image: radial-gradient(
-    rgba(138, 139, 139, 0.986) 2px,
-    /* dot size bigger */ transparent 2px
+    rgba(138, 139, 139, 0.986) 0.1px,
+    transparent 2px
   );
-  background-size: 30px 30px; /* spacing between dots */
+  background-size: 30px 30px; 
 }
 
 img {
