@@ -105,7 +105,9 @@
 }
 
 .product-rating {
+font-size: 12px; 
   color: #ee4169e5;
+  margin-bottom: 10px;
 }
 .old-price{
   color: gray;

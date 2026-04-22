@@ -1,4 +1,3 @@
-
 const productDetail = document.getElementById("productDetail");
 
 // GET ID FROM URL
@@ -34,7 +33,7 @@ function renderProductDetail() {
            style="background:${color}" 
            data-color="${color}">
       </div>
-    `
+    `,
     )
     .join("");
 
@@ -46,7 +45,7 @@ function renderProductDetail() {
             data-size="${size}">
         ${size}
       </span>
-    `
+    `,
     )
     .join("");
 
@@ -105,10 +104,9 @@ function renderProductDetail() {
 
       <!-- BUTTONS -->
       <div class="action-buttons">
-        <button id="addToCartBtn" class="btn">
-          <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+       <button id="addToCartBtn" class="add-to-cart-btn">
+        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
         </button>
-
         <button class="buy-now">Buy Now</button>
       </div>
 
@@ -122,9 +120,9 @@ function renderProductDetail() {
     img.addEventListener("click", () => {
       mainImg.src = img.src;
 
-      document.querySelectorAll(".thumb").forEach((i) =>
-        i.classList.remove("active")
-      );
+      document
+        .querySelectorAll(".thumb")
+        .forEach((i) => i.classList.remove("active"));
       img.classList.add("active");
     });
   });
@@ -176,7 +174,7 @@ function renderProductDetail() {
       (item) =>
         item.productId == product.id &&
         item.size === selectedSize &&
-        item.color === selectedColor
+        item.color === selectedColor,
     );
 
     if (existingItem) {
@@ -197,6 +195,30 @@ function renderProductDetail() {
 
     alert("Product added to cart ");
   });
+
+  renderRelatedProducts();
 }
 
 renderProductDetail();
+
+function renderRelatedProducts() {
+  const container = document.getElementById("relatedContainer");
+
+  if (!product) return;
+
+  const related = products.filter(
+    (p) => p.category === product.category && p.id != product.id,
+  );
+
+  container.innerHTML = related
+    .map(
+      (item) => `
+    <div class="related-card" onclick="openProduct(${item.id})">
+      <img src="${item.images[0]}" />
+      <p>${item.name}</p>
+      <strong>₹${item.price}</strong>
+    </div>
+  `,
+    )
+    .join("");
+}
