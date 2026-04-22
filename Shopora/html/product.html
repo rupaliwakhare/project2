@@ -1,25 +1,31 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Detail</title>
-    <link rel="shortcut icon" href="../images/light_logo1.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../css/style.css">
-     <link
+    <link
+      rel="shortcut icon"
+      href="../images/light_logo1.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/product_details.css" />
+
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
       integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-</head>
-<body>
-      <!-- Header -->
+  </head>
+  <body>
+    <!-- Header -->
     <header class="main-header">
       <nav class="navbar">
         <a href="../index.html" class="nav-logo">
           <img src="../images/light_logo1.png" alt="logo" id="nav-logo"
-/></a>
+        /></a>
         <ul class="nav-links">
           <li class="nav-item">
             <a href="../index.html" class="nav-link">Home</a>
@@ -266,176 +272,78 @@
     <div class="menu-overlay" id="mobile-overlay"></div>
 
     <!-- product detaile -->
-     <div id="productDetail" class="product-container">
+    <div id="productDetail" class="product-container"></div>
 
-     </div>
+    <!-- footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-column">
+          <img
+            id="footer-logo"
+            src="../images/light_logo1.png"
+            alt="ShopoRa logo"
+          />
+          <p>
+            Your one-stop destination for the latest trends in Fashion and
+            Accessories. Quantity and style delivered to your doorstep.
+          </p>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="Pinterest"
+              ><i class="fab fa-pinterest-p"></i
+            ></a>
+          </div>
+        </div>
 
-<!-- footer -->
-   <footer class="main-footer">
-  <div class="footer-content">
-    <div class="footer-column">
-      <img id="footer-logo" src="../images/light_logo1.png" alt="ShopoRa logo" />
-      <p>
-        Your one-stop destination for the latest trends in Fashion and
-        Accessories. Quantity and style delivered to your doorstep.
-      </p>
-      <div class="social-icons">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html?gender=Men">Men's Collection</a></li>
+            <li><a href="shop.html?gender=Women">Women's Fashion</a></li>
+            <li><a href="shop.html?category=Accessories">Accessories</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Sales & Offers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Track Your Order</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Stay Updated</h4>
+          <p>Subscribe to our newsletter for the latest updates and offers.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit">Go</button>
+          </form>
+        </div>
       </div>
-    </div>
 
-    <div class="footer-column">
-      <h4>Shop</h4>
-      <ul>
-        <li><a href="shop.html?gender=Men">Men's Collection</a></li>
-        <li><a href="shop.html?gender=Women">Women's Fashion</a></li>
-        <li><a href="shop.html?category=Accessories">Accessories</a></li>
-        <li><a href="#">New Arrivals</a></li>
-        <li><a href="#">Sales & Offers</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-column">
-      <h4>Support</h4>
-      <ul>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Shipping & Returns</a></li>
-        <li><a href="#">Track Your Order</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-column">
-      <h4>Stay Updated</h4>
-      <p>Subscribe to our newsletter for the latest updates and offers.</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Your email address" required />
-        <button type="submit">Go</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 ShopoRa. All rights Reserved.</p>
-    <div class="payment-icons">
-      <i class="fab fa-cc-visa"></i>
-      <i class="fab fa-cc-mastercard"></i>
-      <i class="fab fa-cc-paypal"></i>
-      <i class="fab fa-cc-amex"></i>
-    </div>
-  </div>
-</footer>
-</body>
-<script>
-    
-    // menu
-
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-const closeBtn = document.getElementById("close-btn");
-const menuOverlay = document.getElementById("mobile-overlay"); // id match karo
-
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.add("active");
-  menuOverlay.classList.add("active");
-  document.body.style.overflow = "hidden";
-});
-
-closeBtn.addEventListener("click", () => {
-  mobileMenu.classList.remove("active");
-  menuOverlay.classList.remove("active");
-  document.body.style.overflow = "auto";
-});
-menuOverlay.addEventListener("click",()=>{
-    mobileMenu.classList.remove("active");
-    menuOverlay.classList.remove("active");
-    document.body.style.overflow = "auto"
-})
-
-// toggle theme and logo
-
-const darktoggle = document.getElementById("dark-toggle");
-const mobileDarkToggle = document.getElementById("mobile-dark-toggle");
-const body = document.body;
-const navLogo = document.getElementById("nav-logo");
-const footerLogo = document.getElementById("footer-logo");
-
-// Page load par check karo
-if (localStorage.getItem("darkMode") === "enabled") {
-  body.classList.add("dark-mode");
-  darktoggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-  mobileDarkToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-  navLogo.src = "../images/dark_logo1.png";
-  footerLogo.src = "../images/dark_logo1.png";
-} else {
-  body.classList.remove("dark-mode");
-  darktoggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-  mobileDarkToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-  navLogo.src = "../images/light_logo1.png";
-  footerLogo.src = "../images/light_logo1.png";
-}
-
-function toggleDarkMode() {
-  if (body.classList.contains("dark-mode")) {
-    body.classList.remove("dark-mode");
-    localStorage.setItem("darkMode", "disabled");
-    darktoggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-    mobileDarkToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-    navLogo.src = "../images/light_logo1.png";
-    footerLogo.src = "../images/light_logo1.png";
-  } else {
-    body.classList.add("dark-mode");
-    localStorage.setItem("darkMode", "enabled");
-    darktoggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-    mobileDarkToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-    navLogo.src = "../images/dark_logo1.png";
-    footerLogo.src = "i../mages/dark_logo1.png";
-  }
-}
-
-// products
-
-const productDetail = document.getElementById("productDetail");
-const getQueryParam = (param)=>{
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-
-}
-const slug = getQueryParam("slug");
-const product = products.find((p)=>p.slug === slug);
-
-const renderProductDetail = ()=>{
- if(!product){
-    productDetail.innerHTML="<p>Product not found.</p>"
-    return;
- }
- const colorHTML = product.colors
- .map(
-    (color,i)=>`
-    <div class="color-dot ${
-    i === 0 ? "selected" : ""
-    }" style="background:${color}" data-color="${color}"></div>
-    `
- )
- .join("");
-
- const sizeHTMLL = product.sizes
- .map(
-    (size,i)=>`
-    <span class="size-option ${
-    i === 0 ? "selected" : ""
-    }" data-sizes="${size}">${size}</span>
-    `
-
- )
- .join("");
-}
-
-</script>
-<script src="../script/products.js"></script>
-
+      <div class="footer-bottom">
+        <p>&copy; 2025 ShopoRa. All rights Reserved.</p>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+          <i class="fab fa-cc-amex"></i>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="../script/products.js"></script>
+  <script src="../script/productDetails.js"></script>
 </html>
