@@ -81,29 +81,6 @@ function toggleDropdown(e) {
   shopChevron.classList.toggle("fa-chevron-up");
 }
 
-
-// ================= SIDEBAR =================
-const openSidebar = document.getElementById("openSidebar");
-const closeSidebar = document.getElementById("closeSidebar");
-const sidebar = document.getElementById("sidebar");
-const sidebarOverlay = document.getElementById("sidebar-overlay");
-
-openSidebar.addEventListener("click", () => {
-  sidebar.classList.add("show");
-  sidebarOverlay.classList.add("active");
-  document.body.style.overflow = "hidden";
-});
-
-const closeSidebarFn = () => {
-  sidebar.classList.remove("show");
-  sidebarOverlay.classList.remove("active");
-  document.body.style.overflow = "";
-};
-
-closeSidebar.addEventListener("click", closeSidebarFn);
-sidebarOverlay.addEventListener("click", closeSidebarFn);
-
-
 // PRODUCT DETAILS
 const productDetail = document.getElementById("productDetail");
 
