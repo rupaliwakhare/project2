@@ -39,7 +39,29 @@ function toggleDarkMode() {
   }
 }
 
+// USER LOGIN CHECK
+const authSection = document.getElementById("auth-section");
+const user = JSON.parse(localStorage.getItem("user"));
 
+if (user) {
+  authSection.innerHTML = `
+    <div class="profile-menu">
+      <span class="profile-name">Hi, ${user.name}</span>
+      <div class="dropdown">
+        <a href="html/profile.html">Profile</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+    </div>
+  `;
+}
+
+// LOGOUT
+document.addEventListener("click", function(e) {
+  if (e.target.id === "logoutBtn") {
+    localStorage.removeItem("user");
+    window.location.reload();
+  }
+});
 
 
 // menu

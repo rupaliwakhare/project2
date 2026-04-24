@@ -135,9 +135,21 @@
               <button class="btn" type="submit">Search</button>
             </form>
           </li>
-          <li class="nav-item">
-            <button class="btn">Login</button>
-          </li>
+          <li class="nav-item" id="auth-section">
+  <a href="./html/login.html" class="btn">Login</a>
+</li>
+
+<li class="nav-item" id="profile-section" style="display:none;">
+  <div class="profile-box" onclick="toggleProfileMenu()">
+    <i class="fa-solid fa-user"></i>
+  </div>
+
+  <div class="profile-menu" id="profileMenu">
+    <a href="profile.html">My Profile</a>
+    <a href="orders.html">Orders</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </div>
+</li>
           <li
             onclick="toggleDarkMode()"
             class="dark-toggle"
