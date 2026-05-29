@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FiArrowUpRight } from "react-icons/fi";
 
 function SelectedWork() {
   const projects = [
@@ -20,11 +21,11 @@ function SelectedWork() {
 
   return (
     <section className="relative w-[95%] m-auto py-24">
-  
-
       <motion.h1
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.15 }} 
+        // animate={{ opacity: 0.15 }}
+        whileInView={{ opacity: 0.1 }}
+        viewport={{ once: true }}
         transition={{ duration: 1 }}
         className="
     absolute
@@ -44,17 +45,17 @@ function SelectedWork() {
         PORTFOLIO
       </motion.h1>
 
-  
       <motion.h2
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
+        // animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
         transition={{ duration: 1 }}
         className="text-center text-3xl md:text-6xl font-bold relative z-10 mb-12 mt-6"
       >
         /SELECTED WORK
       </motion.h2>
 
-    
       <div className="flex justify-between items-center mb-12 relative z-10">
         <div className="flex gap-6 text-gray-600 font-medium">
           <button className="hover:text-black">All</button>
@@ -62,8 +63,9 @@ function SelectedWork() {
           <button className="hover:text-black">Exploration</button>
         </div>
 
-        <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition">
+        <button className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition">
           View All Work
+          <FiArrowUpRight className="text-white" />
         </button>
       </div>
 
@@ -72,9 +74,15 @@ function SelectedWork() {
         {projects.map((proj, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: index * 0.3 }}
+           
+            initial={{ opacity: 0, y: -300 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{
+              duration: 1,
+              ease:"easeOut"
+              
+            }}
             className="rounded-xl overflow-hidden shadow hover:shadow-lg transition"
           >
             <img

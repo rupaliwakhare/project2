@@ -11,7 +11,7 @@ function Hero() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-center mb-10 text-[60px] md:text-[95px] lg:text-[95px] font-black leading-none whitespace-nowrap"
+          className="text-center  text-[60px] md:text-[95px] lg:text-[95px] font-black leading-none whitespace-nowrap"
         >
           <span className="text-transparent [-webkit-text-stroke:2px_black]">
             RUPALI
@@ -19,9 +19,7 @@ function Hero() {
           <span className="ml-4 text-black">WAKHARE</span>
         </motion.h1>
 
-       
-        <div className="grid grid-cols-[1fr_500px_200px] items-center w-full gap-5">
-        
+        <div className="grid grid-cols-[1fr_500px_200px] mt-0 items-center w-full gap-5">
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             animate={{ opacity: 1, x: 0 }}
@@ -41,8 +39,7 @@ function Hero() {
             </button>
           </motion.div>
 
-      
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 120 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -51,11 +48,29 @@ function Hero() {
             <img
               src={heroImg}
               alt="hero"
-              className="w-[310px] h-[300px] object-cover shadow-lg mr-20 "
+              className="w-[330px] h-[330px] object-cover  mr-20 "
+            />
+          </motion.div> */}
+          <motion.div
+            initial={{ opacity: 0, y: 120 }} 
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }} 
+            transition={{ duration: 1 }}
+            className="flex justify-center"
+          >
+            <img
+              src={heroImg}
+              alt="hero"
+              className="
+      w-[330px] h-[330px] object-cover 
+      filter grayscale
+      hover:grayscale-0
+      hover:animate-fire
+      transition duration-700 ease-in-out
+    "
             />
           </motion.div>
 
-       
           <motion.div
             initial={{ opacity: 0, x: 80 }}
             animate={{ opacity: 1, x: 0 }}
