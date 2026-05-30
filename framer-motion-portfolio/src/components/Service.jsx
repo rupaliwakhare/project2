@@ -59,7 +59,7 @@ const services = [
           /SELECTED WORK
         </motion.h2>
       </div>
-
+      {/* 
       <div className="grid grid-cols-1 md:grid-cols-1 gap-8 w-full mt-10">
         {services.map((srv, index) => (
           <motion.div
@@ -85,13 +85,11 @@ const services = [
         
       "
           >
-            {/* Heading */}
+            
             <h3 className="text-3xl font-semibold mb-2">{srv.title}</h3>
 
-            {/* Paragraph */}
             <p className="text-sm leading-7 opacity-90 mb-6">{srv.desc}</p>
 
-            {/* Center Image */}
             {srv.img && (
               <img
                 src={srv.img}
@@ -105,16 +103,69 @@ const services = [
               />
             )}
 
-            {/* Arrow → X toggle */}
             <div className="flex justify-end mt-auto">
-              {/* Arrow visible by default */}
+   
               <FiArrowUpRight
                 className="
             text-2xl transition-opacity duration-500
             group-hover:opacity-0 absolute
           "
               />
-              {/* X visible on hover */}
+             
+              <FiX
+                className="
+            text-2xl opacity-0 transition-opacity duration-500
+            group-hover:opacity-100
+          "
+              />
+            </div>
+          </motion.div>
+        ))}
+      </div> */}
+
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-8 w-full mt-10">
+        {services.map((srv, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+            className="
+        group relative p-8 rounded-xl shadow transition
+        bg-gray-900 text-white hover:bg-black
+        cursor-pointer overflow-hidden
+        flex items-center justify-between
+      "
+          >
+            {/* Left side content */}
+            <div className="flex-1 ">
+              <h3 className="text-2xl font-semibold mb-2">{srv.title}</h3>
+              <p className="text-sm leading-7 opacity-80">{srv.desc}</p>
+            </div>
+
+            {/* Middle image */}
+            {srv.img && (
+              <img
+                src={srv.img}
+                alt={srv.title}
+                className="
+            w-[180px] h-[180px] mx-6
+            object-cover rounded-xl
+            transition-transform duration-500
+            group-hover:rotate-6 group-hover:scale-105
+          "
+              />
+            )}
+
+            {/* Right side icon toggle */}
+            <div className="relative">
+              <FiArrowUpRight
+                className="
+            text-2xl transition-opacity duration-500
+            group-hover:opacity-0 absolute
+          "
+              />
               <FiX
                 className="
             text-2xl opacity-0 transition-opacity duration-500
