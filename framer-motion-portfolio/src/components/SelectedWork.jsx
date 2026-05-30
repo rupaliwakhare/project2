@@ -17,6 +17,20 @@ function SelectedWork() {
       tag: "Landing Page",
       img: "/assets/fragwater.png",
     },
+    {
+      title: "BloomCare - Mental Health App Landing Page",
+      desc: "Emotional Engine for Your Personal Growth",
+      studio: "Kumpin Studio",
+      tag: "Landing Page",
+      img: "/assets/bloomcare.png",
+    },
+    {
+      title: "FragWater - Luxury Fragrance Landing Page",
+      desc: "Premium Unisex Fragrance",
+      studio: "Kumpin Studio",
+      tag: "Landing Page",
+      img: "/assets/fragwater.png",
+    },
   ];
 
   return (
@@ -80,7 +94,7 @@ function SelectedWork() {
             viewport={{ once: false }}
             transition={{
               duration: 1,
-              ease:"easeOut"
+            //   ease:"easeOut"
               
             }}
             className="rounded-xl overflow-hidden shadow hover:shadow-lg transition"
